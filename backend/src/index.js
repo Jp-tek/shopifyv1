@@ -6,11 +6,13 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 dotenv.config();
 const connectDB = require("./utils/dbConnect");
-
+const apiRouter = require("./routers/api");
 
 //Inits
 const app = express();
-const origin = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : true;
+const origin = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(",")
+  : true;
 const PORT = process.env.PORT || 3000;
 
 //Middleware
@@ -22,9 +24,9 @@ app.use(
   })
 );
 app.use(morgan("dev"));
+app.use("/api", apiRouter);
 
 //Routes
-
 
 //Start server
 connectDB().then(() => {
