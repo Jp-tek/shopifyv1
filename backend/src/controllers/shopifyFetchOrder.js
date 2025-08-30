@@ -8,7 +8,7 @@ const fetchAndStoreOrders = async (req, res) => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: `${process.env.SHOPIFY_STORE_URL}/admin/api/${process.env.API_VERSION}/orders.json?status=any`,
+      url: `${process.env.SHOPIFY_STORE_URL}/admin/api/${process.env.API_VERSION}/orders.json?status=open`,
       headers: {
         "X-Shopify-Access-Token": process.env.ACCESS_TOKEN,
       },
