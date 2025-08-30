@@ -10,7 +10,7 @@ const shipmentSchema = new mongoose.Schema({
     required: true,
   },
   phone: {
-    type: [String],
+    type: String,
     required: true,
   },
   add: {
